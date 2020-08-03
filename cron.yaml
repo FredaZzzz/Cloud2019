@@ -1,0 +1,4 @@
+cron:
+- description: "clear expired events"
+  url: /event/<event_id>
+  schedule: every 1 min
