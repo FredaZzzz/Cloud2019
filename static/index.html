@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Lab1(Freda)</title>
+<script type="text/javascript" src="trans.js"></script>
+<script>
+  var x = setInterval(function(){
+  var table = document.getElementById("list");
+  var rowNum = table.rows.length;
+  var dateCol = 1;
+  var refreshCol = 2;
+  for (var i=1; i<rowNum; i++)
+  {
+	var datestr = table.rows.item(i).cells.item(dateCol).innerHTML;
+	table.rows.item(i).cells.item(refreshCol).innerHTML = getRemainingTime(datestr);
+  }
+}, 1000);
+</script>
+<style>
+th,td{
+  padding: 5px;
+  text-align: left;
+}
+input[type=text] {
+  width: 200px;
+  padding: 5px 8px;
+  margin: 5px 5px;
+}
+</style>
+</head>
+<body>
+<div style="width:960px; margin:5px 50px; padding:10 px;">
+<h1>Event list</h1>
+<form id="frm1">
+    Event:<input type="text" name="name" value=" "><br>
+	Time:<input type="text" name="date" value=" "><br> 
+    <input type="submit" name="submit" onclick="postEvent()">
+</form>
+<table id="list" style="width:600px"> Up-coming Events:
+</table>
+<p id="events"></p>
+</div>
+</body>
+</html>
